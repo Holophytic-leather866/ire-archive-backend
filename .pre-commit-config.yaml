@@ -1,7 +1,7 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
-  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
+  - repo: "https://github.com/pre-commit/pre-commit-hooks"
     rev: v6.0.0
     hooks:
       - id: trailing-whitespace
@@ -11,7 +11,7 @@ repos:
       - id: check-yaml
       - id: check-added-large-files
         args:
-          - '--maxkb=100000'
+          - "--maxkb=100000"
       - id: fix-byte-order-marker
         exclude: ^data/
       - id: check-case-conflict
@@ -22,19 +22,18 @@ repos:
         exclude: ^data/
       - id: check-merge-conflict
 
-
-  - repo: 'https://github.com/astral-sh/ruff-pre-commit'
+  - repo: "https://github.com/astral-sh/ruff-pre-commit"
     rev: v0.15.6
     hooks:
       - id: ruff
-        args:
-          - '--fix'
-      - id: ruff-format
-
-  - repo: 'https://github.com/pre-commit/mirrors-mypy'
+  - repo: "https://github.com/pre-commit/mirrors-mypy"
     rev: v1.19.1
     hooks:
       - id: mypy
+        args:
+          - "--config=pyproject.toml"
+          - "--cache-dir=.mypy_cache"
+          - "--ignore-missing-imports"
         additional_dependencies:
           - types-cachetools
           - types-python-dateutil

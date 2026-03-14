@@ -1,5 +1,6 @@
 """Filter operations service for Qdrant queries."""
 
+from collections.abc import Sequence
 from typing import Optional, cast
 
 from qdrant_client.models import FieldCondition, Filter, MatchAny, MatchValue
@@ -41,9 +42,6 @@ def build_qdrant_filter(filters: dict) -> Filter | None:
         else:
             conditions.append(FieldCondition(key="metadata.category", match=MatchValue(value=categories)))
 
-    # Cast to the broader condition list type expected by Qdrant Filter.must
-    broader_conditions = cast(
-        list[FieldCondition | Filter],
-        conditions,
-    )
-    return Filter(must=broader_conditions) if conditions else None
+    # Provide as a sequence to satisfy mypy variance expectations
+    must_seq = cast("Sequence[FieldCondition | Filter]", conditions)
+    return Filter(must=must_seq) if conditions else None

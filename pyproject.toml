@@ -63,3 +63,11 @@ package = true
 
 [tool.setuptools]
 packages = ["app"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["app", "scripts", "tests"]
+exclude = "(^site/|^logs/|^models_cache/|^data/)"
+cache_dir = ".mypy_cache"
+warn_unused_configs = true
+ignore_missing_imports = true
