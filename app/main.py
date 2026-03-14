@@ -450,11 +450,11 @@ async def get_stats(request: Request, response: Response):
                     vectors_config[name] = {"type": "sparse"}
                     sparse_vectors_configured = True
         elif isinstance(vectors_param, VectorParams):
-            # Single unnamed dense vector
+            dense_param: VectorParams = vectors_param
             vectors_config["default"] = {
                 "type": "dense",
-                "size": vectors_param.size,
-                "distance": str(vectors_param.distance) if hasattr(vectors_param, "distance") else "unknown",
+                "size": dense_param.size,
+                "distance": str(dense_param.distance) if hasattr(dense_param, "distance") else "unknown",
             }
             dense_vectors_configured = True
 

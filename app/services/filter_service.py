@@ -1,6 +1,6 @@
 """Filter operations service for Qdrant queries."""
 
-from typing import Optional
+from typing import Optional, cast
 
 from qdrant_client.models import FieldCondition, Filter, MatchAny, MatchValue
 
@@ -41,4 +41,5 @@ def build_qdrant_filter(filters: dict) -> Filter | None:
         else:
             conditions.append(FieldCondition(key="metadata.category", match=MatchValue(value=categories)))
 
-    return Filter(must=conditions) if conditions else None
+    # Cast to the broader condition list type expected by Qdrant Filter.must
+    return Filter(must=cast(list[FieldCondition], conditions)) if conditions else None
