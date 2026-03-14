@@ -439,8 +439,7 @@ async def get_stats(request: Request, response: Response):
         if isinstance(vectors_param, dict):
             # Named vectors configuration (e.g., {"dense": VectorParams, "sparse": SparseVectorParams})
             for name, config in vectors_param.items():
-                if hasattr(config, "size"):
-                    # Dense vector
+                if isinstance(config, VectorParams):
                     vectors_config[name] = {
                         "type": "dense",
                         "size": config.size,
@@ -448,7 +447,6 @@ async def get_stats(request: Request, response: Response):
                     }
                     dense_vectors_configured = True
                 else:
-                    # Sparse vector (no size attribute)
                     vectors_config[name] = {"type": "sparse"}
                     sparse_vectors_configured = True
         elif isinstance(vectors_param, VectorParams):

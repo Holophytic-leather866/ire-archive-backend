@@ -30,7 +30,7 @@ def build_qdrant_filter(filters: dict) -> Filter | None:
     if not filters:
         return None
 
-    conditions: list[Filter | FieldCondition | MatchAny | MatchValue] = []
+    conditions: list[FieldCondition] = []
 
     # Categories filter - nested in metadata (always a list from frontend)
     if filters.get("categories"):

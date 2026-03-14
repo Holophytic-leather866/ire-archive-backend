@@ -327,7 +327,7 @@ def perform_keyword_search(
     )
 
     # Query using only sparse vector (keyword matching)
-    results: list[ScoredPoint | Record] = qdrant_client.query_points(
+    results: list[ScoredPoint] = qdrant_client.query_points(
         collection_name=COLLECTION_NAME,
         query=sparse_vector,
         using="sparse",
@@ -340,11 +340,11 @@ def perform_keyword_search(
 
     # Handle date sorting if requested
     if sort_by in ["newest", "oldest"]:
-        results = _sort_by_date(results, sort_by)
+        results = cast(list[ScoredPoint], _sort_by_date(results, sort_by))
         logger.info("after_date_sort", count=len(results), sort_by=sort_by)
 
     # Deduplicate results
-    results = _deduplicate_results(results)
+    results = cast(list[ScoredPoint], _deduplicate_results(results))
 
     # Paginate and return
     return _paginate_results(results, offset, limit)
@@ -438,7 +438,7 @@ def perform_semantic_search(
     logger.info("fetching_candidates", fetch_limit=fetch_limit)
 
     # Fetch candidates
-    results: list[ScoredPoint | Record] = qdrant_client.query_points(
+    results: list[ScoredPoint] = qdrant_client.query_points(
         collection_name=COLLECTION_NAME,
         prefetch=prefetch,
         query=fusion_query,
@@ -480,14 +480,14 @@ def perform_semantic_search(
 
     # Handle date sorting if requested
     if sort_by in ["newest", "oldest"]:
-        results = _sort_by_date(results, sort_by)
+        results = cast(list[ScoredPoint], _sort_by_date(results, sort_by))
         logger.info("after_date_sort", count=len(results), sort_by=sort_by)
 
     # Track count before deduplication
     pre_dedup_count = len(results)
 
     # Deduplicate BEFORE caching to ensure accurate total count
-    results = _deduplicate_results(results)
+    results = cast(list[ScoredPoint], _deduplicate_results(results))
     deduplicated_count = pre_dedup_count - len(results)
 
     # Cache the full reranked result set (all pages will use this)
