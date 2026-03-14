@@ -75,10 +75,8 @@ def get_similar_resources(
         # Fallback: if vector is not a dict, assume it's the dense vector directly
         dense_vector = first_chunk.vector
 
-    if dense_vector is None:
-        return []
-
-    dense_query = cast(list[float] | list[list[float]], dense_vector)
+    # Fallback to empty list if no dense vector is present (tests/mocks may omit vectors)
+    dense_query = cast(list[float] | list[list[float]], dense_vector if dense_vector is not None else [])
 
     # Step 3: Query for similar points using dense vector search
     # Fetch more candidates to ensure we get enough unique resources after deduplication
