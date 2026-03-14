@@ -1,0 +1,38 @@
+# Base image for IRE Resources Semantic Search ML dependencies
+# This image contains pre-installed ML packages to speed up builds
+#
+# Version: v1.0.0
+# Created: 2025-11-28
+# Last updated: 2025-11-28
+#
+# To rebuild and push:
+#   make prod-build-base ARGS="--tag v1.0.0"
+#
+# Update schedule: Review every 3-6 months or when security updates needed
+
+FROM python:3.12-slim
+
+# Install minimal build dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Pin specific versions of ML packages for reproducibility
+# These are the core ML dependencies that take longest to install
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install --no-cache-dir \
+    sentence-transformers==5.1.1 \
+    fastembed==0.7.3 \
+    optimum[onnxruntime]==2.0.0
+
+# Verify installations
+RUN python -c "import sentence_transformers; print(f'✓ sentence-transformers {sentence_transformers.__version__}')" && \
+    python -c "import fastembed; print(f'✓ fastembed {fastembed.__version__}')" && \
+    python -c "import optimum; print(f'✓ optimum 2.0.0')"
+
+# Set labels for metadata
+LABEL maintainer="IRE Resources Semantic Search"
+LABEL version="1.0.0"
+LABEL description="ML dependencies base image for IRE semantic search"
+LABEL org.opencontainers.image.source="https://github.com/ireapps/ire-archive-backend"

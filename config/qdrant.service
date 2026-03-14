@@ -1,0 +1,17 @@
+# Save this to /etc/systemd/system/qdrant.service
+[Unit]
+Description=Qdrant Vector Database
+After=network.target
+
+[Service]
+Type=simple
+User=$USER
+WorkingDirectory=/home/$USER/Code/ire-resources-semantic-search
+ExecStart=/usr/local/bin/qdrant --config-path /home/$USER/Code/ire-resources-semantic-search/config/qdrant.yaml
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/home/$USER/Code/ire-resources-semantic-search/logs/qdrant.log
+StandardError=append:/home/$USER/Code/ire-resources-semantic-search/logs/qdrant.error.log
+
+[Install]
+WantedBy=multi-user.target

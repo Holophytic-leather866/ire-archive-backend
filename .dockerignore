@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+docs/
+README.md
+CONTRIBUTING.md
+LICENSE
+
+# Testing
+tests/
+test_*.py
+*_test.py
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Fly.io
+fly.toml
+
+# Local data and logs
+logs/
+*.log
+data/qdrant_storage/
+data/ire-archive-data.json
+data/ire-resources-augmented.json
+data/ire-resources.json
+data/combined_tipsheets.json
+data/inspect.ipynb
+
+# Model cache (ignore all except committed models)
+models_cache/
+
+# Include cached models for Docker image (both committed to repo)
+!models_cache/optimized_embedder/
+!models_cache/cross_encoder/
+
+# Development files
+Makefile
+.pre-commit-config.yaml
+pyproject.toml.bak
+uv.lock.bak
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/

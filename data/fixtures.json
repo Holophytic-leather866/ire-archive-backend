@@ -1,0 +1,917 @@
+{
+  "_metadata": {
+    "created_at": "2025-12-29T19:43:08.817192",
+    "source": "data/ire-archive-data.json",
+    "sampling_strategy": "stratified_10_per_category",
+    "total_fixtures": 38,
+    "test_queries": [
+      "investigative journalism",
+      "data journalism"
+    ]
+  },
+  "fixtures": [
+    {
+      "id": "52223",
+      "title": "Digging deeper with data and documents",
+      "description": "Move beyond anecdotes and he-said, she-said journalism with data and documents. Advice on developing a documents state of mind, navigating public records, understanding records retention schedules, exploring key records on a variety of beats and becoming familiar with key national data sets to produce high-impact local stories.",
+      "category": "audio",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "41165271631ebec4adea0735ed9dea4e",
+          "url": "https://www.ire.org/media/uploads/files/conference_audio/3463/LouisvilleDigging.mp3",
+          "name": "Digging deeper with data and documents"
+        }
+      ],
+      "resource_id": "1359",
+      "resource_published": "1905-07-09",
+      "resource_subject": "299",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Angilee Shah; Topher Sanders - 3463",
+      "affiliations": "Global Nation; ProPublica",
+      "resource_date_created": "2017-10-30 09:50:49",
+      {
+        "_metadata": {
+          "created_at": "2026-03-14T00:00:00Z",
+          "source": "synthetic",
+          "sampling_strategy": "synthetic_minimal_fixture_set",
+          "total_fixtures": 6,
+          "test_queries": [
+            "hybrid search",
+            "qdrant rerank"
+          ]
+        },
+        "fixtures": [
+          {
+            "id": "TST-001",
+            "title": "How to file a FOIA",
+            "description": "Synthetic tipsheet on requesting public records and tracking responses.",
+            "category": "tipsheet",
+            "tags": ["records", "foia"],
+            "downloads": [
+              {
+                "id": "dl-001",
+                "url": "https://example.com/downloads/foia.pdf",
+                "name": "foia.pdf"
+              }
+            ],
+            "resource_id": "TS-1",
+            "resource_published": "2024-01-01",
+            "resource_subject": "public records",
+            "contest_name": "",
+            "contest_entry_status": "",
+            "authors": "Casey Doe",
+            "affiliations": "Newsroom Labs",
+            "resource_date_created": "2024-01-02",
+            "resource_date_updated": "2024-01-03"
+          },
+          {
+            "id": "TST-002",
+            "title": "Audio walkthrough: Building a beats list",
+            "description": "Synthetic audio about structuring a beats list for local accountability reporting.",
+            "category": "audio",
+            "tags": ["beats", "planning"],
+            "downloads": [
+              {
+                "id": "dl-002",
+                "url": "https://example.com/audio/beats-list.mp3",
+                "name": "beats-list.mp3"
+              }
+            ],
+            "resource_id": "AU-1",
+            "resource_published": "2024-02-10",
+            "resource_subject": "audio training",
+            "contest_name": "",
+            "contest_entry_status": "",
+            "authors": "Jordan Lee",
+            "affiliations": "Audio Desk",
+            "resource_date_created": "2024-02-10",
+            "resource_date_updated": "2024-02-11"
+          },
+          {
+            "id": "TST-003",
+            "title": "Contest entry: City Hall spending tracker",
+            "description": "Synthetic contest entry outlining a project that tracks municipal spending.",
+            "category": "contest entry",
+            "tags": ["budget", "contest"],
+            "downloads": [
+              {
+                "id": "dl-003",
+                "url": "https://example.com/contest/city-hall.pdf",
+                "name": "city-hall.pdf"
+              }
+            ],
+            "resource_id": "CE-1",
+            "resource_published": "2024-03-15",
+            "resource_subject": "municipal finance",
+            "contest_name": "Investigative Awards",
+            "contest_entry_status": "submitted",
+            "authors": "Alex Kim",
+            "affiliations": "Civic Watch",
+            "resource_date_created": "2024-03-10",
+            "resource_date_updated": "2024-03-12"
+          },
+          {
+            "id": "TST-004",
+            "title": "Open data: Building permits sample",
+            "description": "Synthetic dataset with a handful of building permit records for testing.",
+            "category": "dataset",
+            "tags": ["open data", "permits"],
+            "downloads": [
+              {
+                "id": "dl-004",
+                "url": "https://example.com/datasets/permits.json",
+                "name": "permits.json"
+              }
+            ],
+            "resource_id": "DS-1",
+            "resource_published": "2024-04-01",
+            "resource_subject": "permits",
+            "contest_name": "",
+            "contest_entry_status": "",
+            "authors": "Morgan Patel",
+            "affiliations": "Data Desk",
+            "resource_date_created": "2024-04-01",
+            "resource_date_updated": "2024-04-02"
+          },
+          {
+            "id": "TST-005",
+            "title": "Journal: Quarter in review",
+            "description": "Synthetic journal issue summarizing notable investigative techniques.",
+            "category": "journal",
+            "tags": ["journal", "roundup"],
+            "downloads": [
+              {
+                "id": "dl-005",
+                "url": "https://example.com/journal/q1-2024.pdf",
+                "name": "q1-2024.pdf"
+              }
+            ],
+            "resource_id": "JR-1",
+            "resource_published": "2024-04-15",
+            "resource_subject": "quarterly roundup",
+            "contest_name": "",
+            "contest_entry_status": "",
+            "authors": "Taylor Brooks",
+            "affiliations": "IRE Journal Team",
+            "resource_date_created": "2024-04-10",
+            "resource_date_updated": "2024-04-15"
+          },
+          {
+            "id": "TST-006",
+            "title": "Webinar: Intro to hybrid search",
+            "description": "Synthetic webinar covering dense+sparse retrieval and reranking basics.",
+            "category": "webinar",
+            "tags": ["search", "hybrid"],
+            "downloads": [
+              {
+                "id": "dl-006",
+                "url": "https://example.com/webinars/hybrid-search.mp4",
+                "name": "hybrid-search.mp4"
+              }
+            ],
+            "resource_id": "WB-1",
+            "resource_published": "2024-05-20",
+            "resource_subject": "search",
+            "contest_name": "",
+            "contest_entry_status": "",
+            "authors": "Riley Chen",
+            "affiliations": "Search Lab",
+            "resource_date_created": "2024-05-18",
+            "resource_date_updated": "2024-05-20"
+          }
+        ]
+      }
+          "name": "IRE-Q2-2019.pdf"
+        }
+      ],
+      "resource_id": "0",
+      "resource_published": "1905-07-11",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": null,
+      "resource_date_updated": null
+    },
+    {
+      "id": "52618",
+      "title": "IRE Journal: Q2 2013",
+      "description": "This issue of The IRE Journal focuses on investigating animal welfare. It features stories about using data reporting to dig up the history of Palm Beach puppies, how horse-racing data points to animal deaths and injuries, the cost of baby elephants in the zoo, and the saga of greed that led to the death of a wild jaguar. This issue also features the 2012 IRE Award winners. Check out some of the best investigative projects of the year.\n\\n\n\\nThe Journal is included with IRE membership. Members may download full, archived issues of the Journal for free. <strong>Nonmembers may purchase a digital copy for $10.</strong>",
+      "category": "journal",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "b2d2ea29-a2fc-4f15-aff2-bad2f9727196",
+          "url": "https://www.ire.org/wp-content/uploads/woocommerce_uploads/2020/06/2013-q2-pdf-d4er9l.pdf",
+          "name": "IRE Journal: Q2 2013"
+        }
+      ],
+      "resource_id": "0",
+      "resource_published": "1905-07-05",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": "",
+      "resource_date_updated": ""
+    },
+    {
+      "id": "81190",
+      "title": "Searching the Internet",
+      "description": "The Internet is a powerful tool for the modern reporter. Edds provides this hearty offering of links to make the Internet even more useful. The links range from various uses of Google, to backgrounding links, and places to find public records via the web.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "e8f9489f984d4ec12b1c1fd4eb01e71a",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/T1923.pdf",
+          "name": "T1923.pdf"
+        }
+      ],
+      "resource_id": "1923",
+      "resource_published": "1905-06-25",
+      "resource_subject": "(panel unspecified)",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Washington_D_C_IRE_Annual_2003",
+      "affiliations": "",
+      "resource_date_created": "",
+      "resource_date_updated": "2016-11-11 10:29:56",
+      "authors_extracted": [
+        {
+          "name": "Carolyn Edds",
+          "email": null,
+          "affiliation": "IRE"
+        }
+      ],
+      "conference": "IRE",
+      "year": "2003",
+      "keywords": [
+        "internet search",
+        "public records",
+        "Google advanced search",
+        "newspaper archives",
+        "census data"
+      ]
+    },
+    {
+      "id": "83428",
+      "title": "Sexual assault on campus (slides)",
+      "description": "Data editor and former IRE training director David Donald gives tips, shares links and offers advice to others doing stories and investigations into sexual assaults as part of a slideshow to accompany tipsheet no. 4234.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "4b75e3c6976e396e4e4e7033e2727ff2",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/4233.pdf",
+          "name": "4233.pdf"
+        }
+      ],
+      "resource_id": "4233",
+      "resource_published": "1905-07-06",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": "2014-07-29 14:01:01",
+      "resource_date_updated": "2015-10-29 10:39:42",
+      "authors_extracted": [
+        {
+          "name": "David Donald",
+          "email": "ddonald@publicintegrity.org",
+          "affiliation": "The Center for Public Integrity"
+        }
+      ],
+      "conference": "IRE",
+      "year": "2014",
+      "keywords": [
+        "campus sexual assault",
+        "Clery Act",
+        "FOIA records",
+        "institutional accountability",
+        "crime statistics"
+      ]
+    },
+    {
+      "id": "84222",
+      "title": "First Python Notebook",
+      "description": "This link is a step-by-step guide to analyzing data with Python and the Jupyter Notebook.\\n\\nhttp://first-python-notebook.readthedocs.io/en/latest/",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "cd1c9915690feced5fc331c41fb1520f",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/513.pdf",
+          "name": "513.pdf"
+        }
+      ],
+      "resource_id": "5048",
+      "resource_published": "1905-07-09",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Ben Welsh",
+      "affiliations": "",
+      "resource_date_created": "2017-04-11 10:31:34",
+      "resource_date_updated": "2017-04-11 10:31:34",
+      "authors_extracted": [
+        {
+          "name": "Jim Heaney",
+          "email": "716-849-5597",
+          "affiliation": "Buffalo News"
+        },
+        {
+          "name": "Neill Borowski",
+          "email": null,
+          "affiliation": "Philadelphia Inquirer"
+        },
+        {
+          "name": "Christopher H. Schmitt",
+          "email": null,
+          "affiliation": "San Jose Mercury News"
+        }
+      ],
+      "conference": "Not Listed",
+      "year": "1996",
+      "keywords": [
+        "school district accountability",
+        "educational performance metrics",
+        "standardized test scores",
+        "school funding and spending",
+        "at-risk students"
+      ]
+    },
+    {
+      "id": "79502",
+      "title": "Crime and Chaos: Questions reporters can ask themselves to better humanize crime stories",
+      "description": "\"Crime and Chaos: Reporting that Brings the Human Toll Home\" describes strategies for going beyond incident or statistic specific reporting on crime and outlines how to arrive at central questions that need to be answered, who can help you find them, best use of data to add an authoritative voice to stories, and then putting it all together in your reporting.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "34f2ddfdef86964c09c8884970746f11",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/T224.pdf",
+          "name": "T224.pdf"
+        }
+      ],
+      "resource_id": "224",
+      "resource_published": "1905-06-16",
+      "resource_subject": "(panel unspecified)",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Athelia Knight - St. Louis",
+      "affiliations": "Washington Post",
+      "resource_date_created": "",
+      "resource_date_updated": "2016-11-01 13:23:23",
+      "authors_extracted": [
+        {
+          "name": "Athelia Knight",
+          "email": null,
+          "affiliation": "Washington Post"
+        }
+      ],
+      "conference": "IRE",
+      "year": "1994",
+      "keywords": [
+        "crime reporting",
+        "investigative journalism",
+        "data collection",
+        "narrative storytelling",
+        "criminal justice"
+      ]
+    },
+    {
+      "id": "83888",
+      "title": "Beyond Chi Square",
+      "description": "Sometimes it's important to know whether a pattern could be a fluke. Is a stockbroker lucky or trading on insider knowledge? Did a player throw a game or have a bad streak? Is the lottery rigged or could the same person win twice?\\n\\nReporters often turn to traditional methods like a chi-square test to determine statistical significance, but other techniques, from poisson distributions to monte carlo simulations, might be a better fit. This PowerPoint presentation will walk you through some of the methods you can use to answer the question: is it a fluke?",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "84e2f03eb162bedc01aa0348a878d203",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/4709.pdf",
+          "name": "4709.pdf"
+        }
+      ],
+      "resource_id": "4709",
+      "resource_published": "1905-07-08",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": "2016-04-13 11:07:46",
+      "resource_date_updated": "2016-10-26 15:04:45"
+    },
+    {
+      "id": "80913",
+      "title": "Notable investigations of 2002",
+      "description": "A comprehensive list of Notable Investigations of 2002 with corresponding web pages.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "a14becdb8bae521ab88d591315e7f67e",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/T1646.pdf",
+          "name": "T1646.pdf"
+        }
+      ],
+      "resource_id": "1646",
+      "resource_published": "1905-06-24",
+      "resource_subject": "The Year's Best Investigative Work",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Shawn McIntosh - San Francisco IRE Annual 2002",
+      "affiliations": "",
+      "resource_date_created": "",
+      "resource_date_updated": "2016-11-10 14:09:04",
+      "authors_extracted": [
+        {
+          "name": null,
+          "email": "smcintosh@jackson.gannett.com",
+          "affiliation": null
+        }
+      ],
+      "conference": "IRE",
+      "year": "2002",
+      "keywords": [
+        "government accountability",
+        "public safety",
+        "investigative journalism",
+        "criminal justice",
+        "environmental issues"
+      ]
+    },
+    {
+      "id": "139114",
+      "title": "How to secure your information online",
+      "description": "<span data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;You've got the goods for a blockbuster and plenty of reporting to back it up, but now what? Skip the bullet points. We'll talk strategies for reporting for narrative, and for weaving your investigative findings with artful storytelling that will hold your audience’s attention and amplify your impact.nnNote: This session was pre-recorded. Speakers are available to answer questions via chat during the session.&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:13185,&quot;3&quot;:{&quot;1&quot;:0},&quot;10&quot;:2,&quot;11&quot;:4,&quot;12&quot;:0,&quot;15&quot;:&quot;Arial&quot;,&quot;16&quot;:10}\">The 2020 US election is expected to be fraught with digital attacks from a variety of actors in cyberspace, ranging from online trolls, hacktivists, foreign countries, and the US government itself. Journalists who cover the elections are at a higher risk for these attacks, given the already hostile environment online we've witnessed for folks covering various aspects of US politics over the past four years. The goal of this panel would be to talk about election-related digital threats that the information security space is seeing target journalists, and talk about these attacks, how to prevent them, and proactive online protection practices during the months coming up to the election.</span>",
+      "category": "tipsheet",
+      "tags": [
+        "cyber security",
+        "elections",
+        "management"
+      ],
+      "downloads": [
+        {
+          "id": "946b994f-032e-42f4-9dfa-860a0775a0a2",
+          "url": "https://resources.ire.org/tipsheets/20221015-5992.pdf",
+          "name": "20221015-5992.pdf"
+        }
+      ],
+      "resource_id": "5992",
+      "resource_published": "2022-10-15",
+      "resource_subject": "2020 IRE Conference Tip Sheets",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Neena Kapur & Kristen Larson Kozinski",
+      "affiliations": "The New York Times",
+      "resource_date_created": "",
+      "resource_date_updated": ""
+    },
+    {
+      "id": "84614",
+      "title": "Hope for the best, prepare for the worst",
+      "description": "Learn how KyCIR prepared for the chance of a massive onslaught of pageviews.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "1bc62482d13e179052e88cea71616d03",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/5440.pdf",
+          "name": "5440.pdf"
+        }
+      ],
+      "resource_id": "5440",
+      "resource_published": "1905-07-10",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": "2018-04-05 14:50:22",
+      "resource_date_updated": "2018-04-05 14:50:22"
+    },
+    {
+      "id": "85039",
+      "title": "How to Organize Your Reporting (And Your Life)",
+      "description": "This tipsheet offers advice on how to manage both the reporting and business aspects of freelance journalism.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "8de1b03b72cc520e0b73c986baafd785",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/5868.pdf",
+          "name": "5868.pdf"
+        }
+      ],
+      "resource_id": "5868",
+      "resource_published": "1905-07-11",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": "2019-06-20 13:19:53",
+      "resource_date_updated": "2019-06-20 13:19:53",
+      "authors_extracted": [
+        {
+          "name": null,
+          "email": null,
+          "affiliation": null
+        }
+      ],
+      "conference": "Not Listed",
+      "year": "Not Listed",
+      "keywords": [
+        "freelance productivity",
+        "remote work setup",
+        "source development",
+        "business administration",
+        "time management"
+      ]
+    },
+    {
+      "id": "83755",
+      "title": "Chris Vanderveen Slides from Broadcast: Story structure",
+      "description": "Chris Vanderveen from KUSA-TV shows how to structure TV stories.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "0425042f6aff0fe845e7711f0e301080",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/4571.pdf",
+          "name": "4571.pdf"
+        },
+        {
+          "id": "b8ad91038b53d5f22e0b902851eababb",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/4571.pptx",
+          "name": "4571.pptx"
+        }
+      ],
+      "resource_id": "4571",
+      "resource_published": "1905-07-07",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Brendan Keefe, WXIA; Matt Goldberg, KNBC-TV; Solly Granatstein",
+      "affiliations": "",
+      "resource_date_created": "2015-06-15 12:14:48",
+      "resource_date_updated": "2015-06-15 14:49:47",
+      "authors_extracted": [
+        {
+          "name": "Chris Vanderveen",
+          "email": null,
+          "affiliation": "KUSA-TV Denver, Colorado"
+        }
+      ],
+      "conference": "IRE",
+      "year": "Not Listed",
+      "keywords": [
+        "story structure",
+        "narrative techniques",
+        "moment-driven storytelling",
+        "character-based reporting",
+        "visual storytelling"
+      ]
+    },
+    {
+      "id": "84961",
+      "title": "Finding the Story: Using DNS Search for Investigative Journalism",
+      "description": "A guide on how to use Farsight web tools to track domain names or IP addresses through the Domain Name System.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "741e993efb7eaf11656a67b4f8f801d3",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/5791.pdf",
+          "name": "5791.pdf"
+        }
+      ],
+      "resource_id": "5791",
+      "resource_published": "1905-07-11",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": "2019-06-04 10:15:15",
+      "resource_date_updated": "2019-06-04 10:17:23",
+      "authors_extracted": [
+        {
+          "name": "Dr. Paul Vixie",
+          "email": null,
+          "affiliation": "Farsight Security, Inc."
+        }
+      ],
+      "conference": "NICAR",
+      "year": "2019",
+      "keywords": [
+        "DNS database",
+        "domain name investigation",
+        "IP address tracking",
+        "digital footprint",
+        "passive DNS"
+      ]
+    },
+    {
+      "id": "81372",
+      "title": "Doing investigations while covering the daily beat",
+      "description": "Curliss' tipsheet provides advice in three areas. He outlines an approach to doing investigative journalism while on the daily beat, such as working on short-term, mid-term and long-term projects simultaneously so that you \"keep pulling on a string for an enterprise piece.\" He notes some broad areas to explore, such as background checks and bond referenda. And he summarizes a bevy of helpful databases and websites, such as www.landings.com and www.switchboard.com.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "56793f3e85581b0d770e372bbc67b3dd",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/T2105.pdf",
+          "name": "T2105.pdf"
+        }
+      ],
+      "resource_id": "2105",
+      "resource_published": "1905-06-26",
+      "resource_subject": "Doing investigations while covering the beat",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Clint Brewer; Andrew Curliss - Atlanta_IRE_Annual_2004",
+      "affiliations": "The Lebanon Democrat;The News & Observer",
+      "resource_date_created": "",
+      "resource_date_updated": "2016-11-14 13:53:30",
+      "authors_extracted": [
+        {
+          "name": "J. Andrew Curliss",
+          "email": "acurliss@newsobserver.com",
+          "affiliation": "The News & Observer of Raleigh, N.C."
+        }
+      ],
+      "conference": "IRE",
+      "year": "2004",
+      "keywords": [
+        "investigative reporting",
+        "beat coverage",
+        "public records",
+        "data sources",
+        "accountability journalism"
+      ]
+    },
+    {
+      "id": "98078",
+      "title": "Custodians of Conscience; Investigative Journalism and Public Virtue",
+      "description": "Custodians of Conscience presents research on the nature of investigative journalism as a form of social and moral inquiry, and this investigation of journalists and their work focuses on the tensions and contradictions that characterize modern American journalism. Through in-depth interviews with award-winning investigative reporters and detailed analyses of the stories that brought them professional acclaim, the authors have sought to understand how journalists resolve, practically if not conceptually, the paradox of a press committed to exposing wrongdoing and at the same time adamant about its disinterest in questions of right and wrong.",
+      "category": "contest",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "8b10d82ffb9e0f417098849b1a322ebc",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/questionnaire/015185.pdf",
+          "name": "015185.pdf"
+        }
+      ],
+      "resource_id": "15185",
+      "resource_published": "1998-04-01",
+      "resource_subject": "Media",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Columbia University Press",
+      "affiliations": "",
+      "resource_date_created": "",
+      "resource_date_updated": ""
+    },
+    {
+      "id": "168461",
+      "title": "NICAR 2023 conference resource: How to get a seat at the data journalism table and bring more chairs with you",
+      "description": "<p>Slides for \"How to get a seat at the data journalism table and bring more chairs with you,\" a session at the <a href=\"https://schedules.ire.org/nicar-2023\">NICAR 2023 conference in Nashville</a> on Saturday, March 4, 2023.</p>",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "11daefa6-37c6-4611-ba83-38c7e392566d",
+          "url": "https://resources.ire.org/tipsheets/20230304-30056.pdf",
+          "name": "20230304-30056.pdf"
+        }
+      ],
+      "resource_id": "30056",
+      "resource_published": "2023-03-04",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Cam Rodriguez, Aria Velasquez",
+      "affiliations": "Chalkbeat, Reckon",
+      "resource_date_created": "",
+      "resource_date_updated": ""
+    },
+    {
+      "id": "84158",
+      "title": "Lighthearted data journalism",
+      "description": "This presentation contains several ideas for taking data journalism and making it fun.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "6e0705dd43e96c17c1f0c93341c5c805",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/4981.pdf",
+          "name": "4981.pdf"
+        }
+      ],
+      "resource_id": "4981",
+      "resource_published": "1905-07-09",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Jenny Ye",
+      "affiliations": "",
+      "resource_date_created": "2017-03-20 15:23:44",
+      "resource_date_updated": "2017-04-05 13:17:06",
+      "authors_extracted": [
+        {
+          "name": "Jenny Ye",
+          "email": null,
+          "affiliation": "WNYC"
+        }
+      ],
+      "conference": "Not Listed",
+      "year": "Not Listed",
+      "keywords": [
+        "Twitter bot",
+        "sports data",
+        "live scores",
+        "web scraping",
+        "automation"
+      ]
+    },
+    {
+      "id": "82863",
+      "title": "Digging Deep with Data Journalism",
+      "description": "Get prepared to dig deeper into stories using data journalism.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "2025c518f5f53cf50722145853f70ea5",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/3641.pdf",
+          "name": "3641.pdf"
+        },
+        {
+          "id": "b3622c69dd31fc489f84bce68379e62f",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/GettingStarted.pdf",
+          "name": "GettingStarted.pdf"
+        }
+      ],
+      "resource_id": "3641",
+      "resource_published": "1905-07-04",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": "2012-03-07 10:50:14",
+      "resource_date_updated": "2012-03-13 14:39:19",
+      "authors_extracted": [
+        {
+          "name": "Jaimi Dowdell",
+          "email": null,
+          "affiliation": "IRE"
+        },
+        {
+          "name": "Rob O'Dell",
+          "email": null,
+          "affiliation": "Arizona Daily Star"
+        },
+        {
+          "name": "Angélica Peralta Ramos",
+          "email": null,
+          "affiliation": "LA NACION"
+        }
+      ],
+      "conference": "IRE",
+      "year": "Not Listed",
+      "keywords": [
+        "data journalism",
+        "computer-assisted reporting",
+        "data visualization",
+        "investigative reporting",
+        "spreadsheet skills"
+      ]
+    },
+    {
+      "id": "83611",
+      "title": "Catching Fire: Spreading data journalism through the newsroom.",
+      "description": "Emma Carew Grovum gives her advice on spreading data journalism throughout a newsroom in this presentation.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "f081b38b07b5cb55ccbbcf96d7091858",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/4422.pdf",
+          "name": "4422.pdf"
+        }
+      ],
+      "resource_id": "4422",
+      "resource_published": "1905-07-07",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "",
+      "affiliations": "",
+      "resource_date_created": "2015-04-06 15:16:26",
+      "resource_date_updated": "2015-04-06 15:16:26",
+      "authors_extracted": [
+        {
+          "name": "Emma Carew Grovum",
+          "email": null,
+          "affiliation": "Foreign Policy magazine"
+        }
+      ],
+      "conference": "NICAR",
+      "year": "2015",
+      "keywords": [
+        "data journalism training",
+        "spreadsheets",
+        "data visualization",
+        "chart types",
+        "newsroom skills"
+      ]
+    },
+    {
+      "id": "84584",
+      "title": "Breaking the filter bubble",
+      "description": "Too often, data journalism falls into the trap of preaching to the converted — informing elite, liberal, white audiences on issues they already understand pretty well. This tipsheet looks at ways to reach people outside the bubble.",
+      "category": "tipsheet",
+      "tags": [
+        ""
+      ],
+      "downloads": [
+        {
+          "id": "459ce3ce84927b31a53a0afcf10672d2",
+          "url": "https://www.ire.org/wp-content/uploads/protected-files/tipsheets/5410.pdf",
+          "name": "5410.pdf"
+        }
+      ],
+      "resource_id": "5410",
+      "resource_published": "1905-07-10",
+      "resource_subject": "",
+      "contest_name": "",
+      "contest_entry_status": "",
+      "authors": "Adriana Gallardo",
+      "affiliations": "",
+      "resource_date_created": "2018-03-22 15:35:40",
+      "resource_date_updated": "2018-03-22 15:35:40",
+      "authors_extracted": [
+        {
+          "name": "Adriana Gallardo",
+          "email": "adriana.gallardo@propublica.org",
+          "affiliation": "ProPublica"
+        }
+      ],
+      "conference": "NICAR",
+      "year": "2018",
+      "keywords": [
+        "engagement reporting",
+        "community involvement",
+        "crowdsourcing",
+        "source development",
+        "maternal mortality"
+      ]
+    }
+  ]
+}

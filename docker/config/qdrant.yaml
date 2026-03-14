@@ -1,0 +1,20 @@
+# Qdrant configuration file
+storage:
+  # Where to store all the data
+  storage_path: /data/qdrant_storage
+
+  # Where to store snapshots
+  snapshots_path: /data/qdrant_storage/snapshots
+
+service:
+  # Host to bind the service on
+  host: 0.0.0.0
+
+  # HTTP port for REST API
+  http_port: 6333
+
+  # gRPC port
+  grpc_port: 6334
+
+# Logging configuration
+log_level: INFO

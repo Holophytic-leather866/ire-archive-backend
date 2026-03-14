@@ -1,0 +1,71 @@
+# Fly.io configuration for IRE Resources Semantic Search
+# Replace with your own Fly.io app name (create with: fly apps create your-app-name)
+app = "ire-semantic-search"
+primary_region = "iad"      # US East (Virginia) - change as needed
+kill_signal = "SIGINT"
+kill_timeout = "30s"
+
+[build]
+dockerfile = "docker/Dockerfile"
+
+[env]
+PORT = "8000"
+QDRANT_HOST = "localhost"
+QDRANT_PORT = "6333"
+MODEL_NAME = "all-MiniLM-L6-v2"
+VECTOR_SIZE = "384"
+COLLECTION_NAME = "nonprofit_knowledge"
+LOG_LEVEL = "info"
+PYTHONUNBUFFERED = "1"
+# Uncomment and set to allow a community frontend deployment to connect.
+# Accepts a JSON array or a comma-separated list of origin URLs.
+# ADDITIONAL_ALLOWED_ORIGINS = '["https://your-frontend.example.com"]'
+
+[experimental]
+auto_rollback = true
+
+[[services]]
+protocol = "tcp"
+internal_port = 8000
+auto_stop_machines = false
+auto_start_machines = true
+min_machines_running = 1
+
+[[services.ports]]
+port = 80
+handlers = ["http"]
+force_https = true
+
+[[services.ports]]
+port = 443
+handlers = ["tls", "http"]
+
+[services.concurrency]
+type = "connections"
+hard_limit = 25
+soft_limit = 20
+
+[[services.tcp_checks]]
+interval = "45s"
+timeout = "10s"
+grace_period = "180s"
+restart_limit = 10
+
+[[services.http_checks]]
+interval = "45s"
+grace_period = "180s"
+method = "get"
+path = "/healthz"
+protocol = "http"
+timeout = "10s"
+tls_skip_verify = false
+
+[[mounts]]
+source = "qdrant_data"
+destination = "/data/qdrant_storage"
+initial_size = "3gb"
+
+[[vm]]
+cpu_kind = "shared"
+cpus = 2
+memory_mb = 4096

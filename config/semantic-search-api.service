@@ -1,0 +1,18 @@
+[Unit]
+Description=Semantic Search API
+After=network.target qdrant.service
+Requires=qdrant.service
+
+[Service]
+Type=simple
+User=$USER
+WorkingDirectory=/home/$USER/Code/ire-resources-semantic-search
+Environment="PATH=/home/$USER/.cargo/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/$USER/.cargo/bin/uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/home/$USER/Code/ire-resources-semantic-search/logs/api.log
+StandardError=append:/home/$USER/Code/ire-resources-semantic-search/logs/api.error.log
+
+[Install]
+WantedBy=multi-user.target
