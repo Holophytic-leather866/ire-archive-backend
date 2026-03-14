@@ -6,6 +6,7 @@ import sys
 import time
 import uuid
 from contextvars import ContextVar
+from typing import Any
 
 import structlog
 
@@ -435,10 +436,10 @@ async def get_stats(request: Request, response: Response):
 
     # Parse vectors_config from collection info
     if hasattr(info.config, "params") and hasattr(info.config.params, "vectors"):
-        vectors_param = info.config.params.vectors
-        if isinstance(vectors_param, dict):
+        vectors_param_obj: Any = info.config.params.vectors
+        if isinstance(vectors_param_obj, dict):
             # Named vectors configuration (e.g., {"dense": VectorParams, "sparse": SparseVectorParams})
-            for name, config in vectors_param.items():
+            for name, config in vectors_param_obj.items():
                 if isinstance(config, VectorParams):
                     vectors_config[name] = {
                         "type": "dense",
@@ -449,8 +450,8 @@ async def get_stats(request: Request, response: Response):
                 else:
                     vectors_config[name] = {"type": "sparse"}
                     sparse_vectors_configured = True
-        elif isinstance(vectors_param, VectorParams):
-            dense_param: VectorParams = vectors_param
+        elif isinstance(vectors_param_obj, VectorParams):
+            dense_param: VectorParams = vectors_param_obj
             vectors_config["default"] = {
                 "type": "dense",
                 "size": dense_param.size,

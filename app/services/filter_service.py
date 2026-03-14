@@ -42,4 +42,8 @@ def build_qdrant_filter(filters: dict) -> Filter | None:
             conditions.append(FieldCondition(key="metadata.category", match=MatchValue(value=categories)))
 
     # Cast to the broader condition list type expected by Qdrant Filter.must
-    return Filter(must=cast(list[FieldCondition], conditions)) if conditions else None
+    broader_conditions = cast(
+        list[FieldCondition | Filter],
+        conditions,
+    )
+    return Filter(must=broader_conditions) if conditions else None
