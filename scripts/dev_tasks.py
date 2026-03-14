@@ -51,8 +51,6 @@ def kill_process_on_port(port: int) -> bool:
             capture_output=True,
             check=False,
         )
-
-            import time
         if result.returncode == 0 and result.stdout.strip():
             pids = result.stdout.strip().split("\n")
             for pid_str in pids:
