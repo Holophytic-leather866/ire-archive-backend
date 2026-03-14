@@ -28,6 +28,7 @@ from fastapi import Depends, FastAPI, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from qdrant_client.models import VectorParams
 from slowapi.errors import RateLimitExceeded
 
 from app.auth.config import get_auth_settings
@@ -46,7 +47,6 @@ from app.config import (
     RATE_LIMIT_STATS,
     VECTOR_SIZE,
 )
-from qdrant_client.models import VectorParams
 from app.dependencies import get_embedding_model, get_qdrant_client, get_sparse_model, lifespan
 from app.exceptions import APIError, ResourceNotFoundError
 from app.models import ErrorResponse, SearchQuery, SearchResponse, SimilarResource, SimilarResourcesResponse
