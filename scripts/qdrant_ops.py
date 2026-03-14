@@ -20,7 +20,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 from sentence_transformers import SentenceTransformer
-from tqdm import tqdm
+from tqdm import tqdm  # type: ignore[import-untyped]
 
 from app.config import COLLECTION_NAME, QDRANT_CHECK_COMPATIBILITY, QDRANT_HOST, QDRANT_PORT, QDRANT_TIMEOUT
 

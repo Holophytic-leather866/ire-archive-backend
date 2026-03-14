@@ -37,7 +37,7 @@ def log_environment_info() -> None:
 
     # ONNX Runtime version
     try:
-        import onnxruntime
+        import onnxruntime  # type: ignore[import-untyped]
 
         versions["onnxruntime"] = onnxruntime.__version__
     except ImportError:

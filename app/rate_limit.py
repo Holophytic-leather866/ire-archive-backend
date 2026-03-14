@@ -189,7 +189,7 @@ def limit_with_bypass(limit_string: str) -> Callable:
     return decorator
 
 
-async def rate_limit_exceeded_handler(request: Request, exc: RateLimitExceeded) -> JSONResponse:
+async def rate_limit_exceeded_handler(request: Request, exc: Exception) -> JSONResponse:
     """Handle rate limit exceeded errors.
 
     Returns a structured JSON response with retry information and proper headers.

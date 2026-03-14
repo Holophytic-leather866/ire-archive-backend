@@ -1,7 +1,7 @@
 """Search service for semantic and hybrid search operations."""
 
 from collections.abc import Sequence
-from typing import Any, Optional, Union
+from typing import Any, Optional, Union, cast
 
 import structlog
 from fastembed import SparseTextEmbedding
@@ -188,7 +188,7 @@ def _build_hybrid_query(
 def _fetch_all_filtered_records(
     qdrant_client: QdrantClient,
     qdrant_filter: Filter,
-) -> list[Record]:
+) -> list[Record | ScoredPoint]:
     """Fetch all records matching a filter using Qdrant scroll API.
 
     Uses pagination via scroll to efficiently retrieve large result sets
@@ -205,7 +205,7 @@ def _fetch_all_filtered_records(
         Fetches in batches of SCROLL_BATCH_SIZE (100) until all records
         matching the filter have been retrieved.
     """
-    all_records: list[Record] = []
+    all_records: list[Record | ScoredPoint] = []
     offset_point = None
 
     while True:
@@ -318,13 +318,16 @@ def perform_keyword_search(
     logger.info("fetching_keyword_candidates", fetch_limit=fetch_limit)
 
     # Convert sparse embedding to SparseVector for Qdrant query
+    indices_list = list(map(int, cast(Sequence[int], sparse_embedding.indices.tolist())))
+    values_list = [float(v) for v in cast(Sequence[float], sparse_embedding.values.tolist())]
+
     sparse_vector = SparseVector(
-        indices=list(sparse_embedding.indices.tolist()),
-        values=[float(v) for v in sparse_embedding.values.tolist()],
+        indices=indices_list,
+        values=values_list,
     )
 
     # Query using only sparse vector (keyword matching)
-    results = qdrant_client.query_points(
+    results: list[ScoredPoint | Record] = qdrant_client.query_points(
         collection_name=COLLECTION_NAME,
         query=sparse_vector,
         using="sparse",
@@ -435,7 +438,7 @@ def perform_semantic_search(
     logger.info("fetching_candidates", fetch_limit=fetch_limit)
 
     # Fetch candidates
-    results = qdrant_client.query_points(
+    results: list[ScoredPoint | Record] = qdrant_client.query_points(
         collection_name=COLLECTION_NAME,
         prefetch=prefetch,
         query=fusion_query,

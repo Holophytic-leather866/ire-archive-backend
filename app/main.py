@@ -450,7 +450,7 @@ async def get_stats(request: Request, response: Response):
                     # Sparse vector (no size attribute)
                     vectors_config[name] = {"type": "sparse"}
                     sparse_vectors_configured = True
-        elif hasattr(vectors_param, "size"):
+        elif isinstance(vectors_param, VectorParams):
             # Single unnamed dense vector
             vectors_config["default"] = {
                 "type": "dense",

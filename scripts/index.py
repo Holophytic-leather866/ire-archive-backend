@@ -47,7 +47,7 @@ def get_memory_info() -> tuple[float, float]:
         Tuple of (used_gb, percent) or (0.0, 0.0) if psutil not available
     """
     try:
-        import psutil
+        import psutil  # type: ignore[import-untyped]
 
         mem = psutil.virtual_memory()
         return mem.used / (1024**3), mem.percent
@@ -58,7 +58,7 @@ def get_memory_info() -> tuple[float, float]:
 def display_system_info(is_production: bool) -> None:
     """Display system information panel."""
     try:
-        import psutil
+        import psutil  # type: ignore[import-untyped]
 
         cpu_count = psutil.cpu_count()
         total_ram = psutil.virtual_memory().total / (1024**3)

@@ -52,6 +52,7 @@ def kill_process_on_port(port: int) -> bool:
             check=False,
         )
 
+            import time
         if result.returncode == 0 and result.stdout.strip():
             pids = result.stdout.strip().split("\n")
             for pid_str in pids:
@@ -410,8 +411,8 @@ def cmd_index(_args: argparse.Namespace) -> None:
     console.print()
 
     try:
-        sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
-        from index import main as index_main
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from scripts.index import main as index_main
 
         index_main()
     except Exception as exc:
@@ -435,8 +436,8 @@ def cmd_index_test(_args: argparse.Namespace) -> None:
     console.print()
 
     try:
-        sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
-        from index import main as index_main
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from scripts.index import main as index_main
 
         index_main(test_data=True)
     except Exception as exc:
@@ -460,8 +461,8 @@ def cmd_clear_db(_args: argparse.Namespace) -> None:
     console.print()
 
     try:
-        sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
-        from clear_db import main as clear_main
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from scripts.clear_db import main as clear_main
 
         clear_main()
     except Exception as exc:

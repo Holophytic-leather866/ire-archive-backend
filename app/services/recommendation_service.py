@@ -1,6 +1,6 @@
 """Recommendation service for finding similar resources."""
 
-from typing import Any
+from typing import Any, cast
 
 from qdrant_client import QdrantClient
 from qdrant_client.models import FieldCondition, Filter, MatchValue
@@ -34,8 +34,10 @@ def get_similar_resources(
         # Point not found
         return []
 
+    first_payload = point_result[0].payload or {}
+
     # Extract resource_id from the point's metadata
-    resource_id = point_result[0].payload.get("metadata", {}).get("resource_id")
+    resource_id = first_payload.get("metadata", {}).get("resource_id")
     if not resource_id:
         # No resource_id in metadata
         return []
@@ -68,10 +70,15 @@ def get_similar_resources(
     # Extract dense vector from the named vectors dict
     # The vector attribute is a dict with keys "dense" and "sparse"
     if isinstance(first_chunk.vector, dict):
-        dense_vector = first_chunk.vector["dense"]
+        dense_vector = first_chunk.vector.get("dense")
     else:
         # Fallback: if vector is not a dict, assume it's the dense vector directly
         dense_vector = first_chunk.vector
+
+    if dense_vector is None:
+        return []
+
+    dense_query = cast(list[float] | list[list[float]], dense_vector)
 
     # Step 3: Query for similar points using dense vector search
     # Fetch more candidates to ensure we get enough unique resources after deduplication
@@ -79,7 +86,7 @@ def get_similar_resources(
 
     similar_points = qdrant_client.query_points(
         collection_name=COLLECTION_NAME,
-        query=dense_vector,
+        query=dense_query,
         using="dense",
         limit=fetch_limit,
         with_payload=True,

@@ -120,11 +120,12 @@ async def lifespan(app: FastAPI):
     if auth_settings.is_configured:
         try:
             # Redis for sessions
-            app_state.redis = Redis.from_url(
+            redis_client: Redis = Redis.from_url(
                 auth_settings.redis_url,
                 encoding="utf-8",
                 decode_responses=True,
             )
+            app_state.redis = redis_client
             logger.info("redis_connected", url=auth_settings.redis_url)
 
             # HTTP client for MemberSuite API
@@ -135,7 +136,7 @@ async def lifespan(app: FastAPI):
             logger.info("membersuite_http_client_created")
 
             # Session manager
-            app_state.session_manager = SessionManager(app_state.redis, auth_settings)
+            app_state.session_manager = SessionManager(redis_client, auth_settings)
             logger.info("session_manager_initialized")
 
             # MemberSuite client
